@@ -26,7 +26,7 @@ def admin_login_window(parent_root):
     
     # Theme Palette
     bg_color = "#3d200f"      # Darkest chocolate brown
-    card_color = "#755e52"    # Deep warm brown
+    card_color = "#2c1509"    # Deep warm brown
     text_color = "#c7b5a3"    # Very light grayish tan
     text_muted = "#bba690"    # Soft grayish tan
     accent_color = "#c69d77"  # Light warm tan / accent

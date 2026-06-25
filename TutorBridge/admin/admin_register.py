@@ -24,7 +24,7 @@ def admin_register_window(parent_root):
     win.resizable(False, False)
 
     bg_color = "#3d200f"
-    card_color = "#755e52"
+    card_color = "#2D1407"
     text_color = "#c7b5a3"
     text_muted = "#bba690"
     accent_color = "#c69d77"
