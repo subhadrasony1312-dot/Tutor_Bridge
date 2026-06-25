@@ -5,7 +5,7 @@ def get_connection():
     db_config = {
         "host": "localhost",
         "user": "root",
-        "password": "Subham@2006",
+        "password": "sb@19092006",
     }
     
     # Try connecting without database first to ensure it exists
