@@ -2,6 +2,7 @@ import os
 import sys
 import re
 from tkinter import *
+from tkinter import ttk
 from tkinter import messagebox
 
 # Resolve paths
@@ -84,7 +85,9 @@ def student_register_window(parent_root):
     phone_ent.pack(ipady=4, pady=(0, 8))
     
     Label(card, text="Address", font=("Helvetica", 10, "bold"), fg=text_color, bg=card_color).pack(anchor="w", pady=(0, 2))
-    city_ent = Entry(card, font=("Helvetica", 11), width=32, bg="#c7b5a3", fg="#3d200f", insertbackground="#3d200f", bd=0)
+    cities_list = ["Bhubaneswar", "Cuttack", "Rourkela", "Sambalpur", "Puri", "Balasore", "Berhampur", "Baripada", "Bhadrak", "Jharsuguda"]
+    city_ent = ttk.Combobox(card, values=cities_list, font=("Helvetica", 11), width=30, state="readonly")
+    city_ent.set(cities_list[0]) # Default to first city
     city_ent.pack(ipady=4, pady=(0, 10))
     
     def clear_fields():
@@ -93,7 +96,7 @@ def student_register_window(parent_root):
         pass_ent.delete(0, END)
         confirm_pass_ent.delete(0, END)
         phone_ent.delete(0, END)
-        city_ent.delete(0, END)
+        city_ent.set(cities_list[0])
         
     def register():
         name = name_ent.get().strip()
