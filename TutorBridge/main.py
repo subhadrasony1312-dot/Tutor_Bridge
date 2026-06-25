@@ -80,11 +80,11 @@ class TutorBridgeApp:
         self.draw_logo()
 
 
-        # Legibility banner backing the title and subtitle
-        self.bg_canvas.create_rectangle(300, 145, 900, 250, fill="#c7b5a3", outline="#3d200f", width=2, tags="header_bg")
+        # Repositioned header: Full-width at the top
+        self.bg_canvas.create_rectangle(0, 0, 1200, 120, fill="#3d200f", outline="#3d200f", width=2, tags="header_bg")
 
-        self.bg_canvas.create_text(600, 180, text="TutorBridge", font=("Helvetica", 38, "bold"), fill="#3d200f", tags="header")
-        self.bg_canvas.create_text(600, 222, text="Bridging the Gap to Better Learning", font=("Helvetica", 14, "italic"), fill="#3d200f", tags="header")
+        self.bg_canvas.create_text(600, 45, text="TutorBridge", font=("Helvetica", 38, "bold"), fill="#bba690", tags="header")
+        self.bg_canvas.create_text(600, 85, text="Bridging the Gap to Better Learning", font=("Helvetica", 14, "italic"), fill="#bba690", tags="header")
         
         # Team Card (Frame)
         landing_card_color = "#bba690"
@@ -135,11 +135,11 @@ class TutorBridgeApp:
         self.set_background_image("second__page.jpeg")
         self.draw_logo()
 
-        # Legibility banner backing the title and subtitle
-        self.bg_canvas.create_rectangle(300, 145, 900, 250, fill="#c7b5a3", outline="#3d200f", width=2, tags="header_bg")
+        # Repositioned header: Full-width at the top
+        self.bg_canvas.create_rectangle(0, 0, 1200, 120, fill="#3d200f", outline="#3d200f", width=2, tags="header_bg")
 
-        self.bg_canvas.create_text(600, 180, text="TutorBridge", font=("Helvetica", 38, "bold"), fill="#3d200f", tags="header")
-        self.bg_canvas.create_text(600, 222, text="Find the Right Tutor in Your New City", font=("Helvetica", 15, "bold"), fill="#3d200f", tags="header")
+        self.bg_canvas.create_text(600, 45, text="TutorBridge", font=("Helvetica", 38, "bold"), fill="#bba690", tags="header")
+        self.bg_canvas.create_text(600, 85, text="Find the Right Tutor in Your New City", font=("Helvetica", 15, "bold"), fill="#bba690", tags="header")
         
         # Welcome Card (Frame)
         welcome_card_color = "#bba690"
@@ -186,12 +186,12 @@ class TutorBridgeApp:
         # Try loading online/cached school logo, otherwise draw vector fallback
         logo_ref = load_and_resize("logo.png", 80, 80)
         if logo_ref:
-            self.bg_canvas.create_image(600, 100, image=logo_ref, anchor="center", tags="logo")
+            self.bg_canvas.create_image(120, 60, image=logo_ref, anchor="center", tags="logo")
             self.bg_canvas.logo_ref = logo_ref
         else:
-            # Fallback vector representation (graduation cap)
-            self.bg_canvas.create_oval(560, 50, 640, 130, fill="#755e52", outline="#c69d77", width=3, tags="logo")
-            self.bg_canvas.create_text(600, 90, text="TB", font=("Helvetica", 24, "bold"), fill="#c69d77", tags="logo")
+            # Fallback vector representation (graduation cap) - moved to header left
+            self.bg_canvas.create_oval(80, 20, 160, 100, fill="#755e52", outline="#c69d77", width=3, tags="logo")
+            self.bg_canvas.create_text(120, 60, text="TB", font=("Helvetica", 24, "bold"), fill="#c69d77", tags="logo")
             # Trigger download
             setup_canvas_bg(self.bg_canvas, "logo.png", width=80, height=80)
 
@@ -217,11 +217,11 @@ class TutorBridgeApp:
         self.bg_canvas.delete("header_bg")
         self.draw_logo()
         
-        # Legibility banner backing the title and subtitle
-        self.bg_canvas.create_rectangle(300, 145, 900, 250, fill=self.card_color, outline=self.accent_color, width=2, tags="header_bg")
+        # Repositioned header: Full-width at the top
+        self.bg_canvas.create_rectangle(0, 0, 1200, 120, fill="#3d200f", outline="#3d200f", width=2, tags="header_bg")
 
-        self.bg_canvas.create_text(600, 180, text="TutorBridge", font=("Helvetica", 38, "bold"), fill=self.accent_color, tags="header")
-        self.bg_canvas.create_text(600, 222, text=title_text, font=("Helvetica", 14, "bold"), fill=self.text_color, tags="header")
+        self.bg_canvas.create_text(600, 45, text="TutorBridge", font=("Helvetica", 38, "bold"), fill="#bba690", tags="header")
+        self.bg_canvas.create_text(600, 85, text=title_text, font=("Helvetica", 14, "bold"), fill="#bba690", tags="header")
         
         card = Frame(self.bg_canvas, bg=self.card_color, bd=0, padx=40, pady=35)
         self.bg_canvas.create_window(600, 440, window=card, anchor="center")
