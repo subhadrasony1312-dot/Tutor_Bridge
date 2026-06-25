@@ -74,7 +74,7 @@ DATABASE SETUP
 5. Default Database Connection:
    * Host: localhost
    * User: root
-   * Password: Subham@2006 (Set inside database.py)
+   * Password: (Set inside database.py)
 
 DEFAULT ADMIN CREDENTIALS:
 - Username: admin
