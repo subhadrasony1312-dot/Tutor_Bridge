@@ -59,7 +59,6 @@ class TutorBridgeApp:
             self.bg_canvas.image_ref = bg_img
         else:
             setup_canvas_bg(self.bg_canvas, "background.png", "#c7b5a3", "#bba690")
-
     def set_background_image(self, image_name):
         # Replace the existing canvas background with a full-size local image
         self.bg_canvas.delete("bg_image")
