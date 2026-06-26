@@ -21,7 +21,7 @@ class AdminDashboard:
         self.username = username
         self.root.title("Admin Dashboard - TutorBridge")
         self.root.geometry("1200x700")
-        self.root.resizable()
+        self.root.resizable(False, False)
         
         # Design Theme
         self.bg_color = "#3d200f"      # Darkest chocolate brown
@@ -794,4 +794,5 @@ class AdminDashboard:
 
 def admin_dashboard(parent_root, username="admin"):
     root = Toplevel()
+    root.resizable(False, False)
     AdminDashboard(root, parent_root, username)
