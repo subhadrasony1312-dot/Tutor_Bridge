@@ -229,6 +229,12 @@ def tutor_register_window(parent_root):
             filetypes=[("Image Files", "*.png *.jpg *.jpeg  *.bmp ")]
         )
         if path:
+            # Check file size (500MB = 500 * 1024 * 1024 bytes)
+            max_size = 500 * 1024 * 1024
+            if os.path.getsize(path) > max_size:
+                messagebox.showerror("File Too Large", "The selected photo exceeds the 500MB limit. Please choose a smaller file.", parent=win)
+                return
+
             selected_pic_path.set(path)
             basename = os.path.basename(path)
             display_name = basename if len(basename) <= 18 else basename[:15] + "..."

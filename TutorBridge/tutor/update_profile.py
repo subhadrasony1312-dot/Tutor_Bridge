@@ -113,6 +113,12 @@ def update_profile_dialog(parent_win, tutor_id, refresh_callback):
             filetypes=[("Image Files", "*.png *.jpg *.jpeg *.gif *.bmp *.webp")]
         )
         if path:
+            # Check file size (500MB = 500 * 1024 * 1024 bytes)
+            max_size = 500 * 1024 * 1024
+            if os.path.getsize(path) > max_size:
+                messagebox.showerror("File Too Large", "The selected photo exceeds the 500MB limit. Please choose a smaller file.", parent=dialog)
+                return
+
             selected_pic_path.set(path)
             basename = os.path.basename(path)
             display_name = basename if len(basename) <= 18 else basename[:15] + "..."

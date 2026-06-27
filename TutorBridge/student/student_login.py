@@ -24,14 +24,14 @@ def student_login_window(parent_root):
     win.resizable(False, False)
     
     # Theme Palette
-    bg_color = "#3d200f"      # Darkest chocolate brown
-    card_color = "#522e1a"    # Deep warm brown
-    text_color = "#c7b5a3"    # Very light grayish tan
-    text_muted = "#bba690"    # Soft grayish tan
-    accent_color = "#c69d77"  # Light warm tan / accent
-    accent_hover = "#b0977c"  # Light grayish tan
-    danger_color = "#734022"  # Reddish brown
-    danger_hover = "#725237"  # Rich brown
+    bg_color = "#3d200f"      
+    card_color = "#522e1a"    
+    text_color = "#c7b5a3"    
+    text_muted = "#bba690"    
+    accent_color = "#c69d77"  
+    accent_hover = "#b0977c"  
+    danger_color = "#734022"  
+    danger_hover = "#725237" 
     
     # Background Canvas
     canvas = Canvas(win, width=1200, height=700, highlightthickness=0)
