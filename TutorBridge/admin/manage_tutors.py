@@ -24,18 +24,18 @@ class AdminDashboard:
         self.root.resizable(False, False)
         
         # Design Theme
-        self.bg_color = "#3d200f"      # Darkest chocolate brown
-        self.sidebar_color = "#3d200f" # Darkest chocolate brown
-        self.content_bg = "#c7b5a3"    # Very light grayish tan
-        self.text_dark = "#3d200f"     # Darkest chocolate brown
-        self.text_light = "#c7b5a3"    # Very light grayish tan
-        self.text_muted = "#bba690"    # Soft grayish tan
-        self.accent_color = "#c69d77"  # Light warm tan
-        self.accent_hover = "#b0977c"  # Light grayish tan
-        self.danger_color = "#734022"  # Reddish brown
-        self.danger_hover = "#725237"  # Rich brown
-        self.success_color = "#a87a64" # Medium warm brown
-        self.success_hover = "#8d7865" # Medium grayish brown
+        self.bg_color = "#3d200f"      
+        self.sidebar_color = "#3d200f" 
+        self.content_bg = "#c7b5a3"    
+        self.text_dark = "#3d200f"     
+        self.text_light = "#c7b5a3"    
+        self.text_muted = "#bba690"    
+        self.accent_color = "#c69d77"  
+        self.accent_hover = "#b0977c"  
+        self.danger_color = "#734022"  
+        self.danger_hover = "#725237"  
+        self.success_color = "#a87a64" 
+        self.success_hover = "#8d7865" 
         
         self.root.configure(bg=self.content_bg)
         
