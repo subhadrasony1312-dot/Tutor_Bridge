@@ -51,10 +51,21 @@ def feedback_submission_dialog(parent_dialog, tutor_id, student_id, completion_c
     rating_box.pack(fill="x", pady=(0, 15))
     
     # 2. Feedback Comment Textarea
-    Label(form, text="Write Feedback Review", font=("Helvetica", 10, "bold"), fg=text_color, bg=card_color).pack(anchor="w", pady=(0, 5))
+    lbl_comment = Label(form, text="Write Feedback Review (0/200)", font=("Helvetica", 10, "bold"), fg=text_color, bg=card_color)
+    lbl_comment.pack(anchor="w", pady=(0, 5))
     feedback_text = Text(form, font=("Helvetica", 10), height=5, bg="#c7b5a3", fg="#3d200f", insertbackground="#3d200f", bd=0, wrap="word")
     feedback_text.pack(fill="both", expand=True, pady=(0, 20))
     feedback_text.focus()
+    
+    def limit_text(event=None):
+        content = feedback_text.get("1.0", "end-1c")
+        if len(content) > 200:
+            feedback_text.delete("1.0", "end")
+            feedback_text.insert("1.0", content[:200])
+            content = content[:200]
+        lbl_comment.config(text=f"Write Feedback Review ({len(content)}/200)")
+        
+    feedback_text.bind("<KeyRelease>", limit_text)
     
     def submit_feedback():
         feedback_val = feedback_text.get("1.0", "end-1c").strip()
@@ -65,6 +76,10 @@ def feedback_submission_dialog(parent_dialog, tutor_id, student_id, completion_c
         
         if not feedback_val:
             messagebox.showerror("Validation Error", "Please write a comment feedback review.", parent=dialog)
+            return
+            
+        if len(feedback_val) > 200:
+            messagebox.showerror("Validation Error", "Feedback review cannot exceed 200 characters.", parent=dialog)
             return
             
         conn = get_connection()

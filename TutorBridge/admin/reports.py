@@ -78,21 +78,6 @@ class ReportsFrame:
         report_select.pack(side="left", padx=5)
         report_select.bind("<<ComboboxSelected>>", lambda e: self.load_report_breakdown())
         
-        btn_refresh = Button(
-            control_frame, 
-            text="🔄 Refresh Metrics", 
-            bg=self.accent_color, 
-            fg="#3d200f", 
-            font=("Helvetica", 10, "bold"), 
-            bd=0, 
-            padx=15, 
-            cursor="hand2", 
-            command=self.refresh_all
-        )
-        btn_refresh.pack(side="right", padx=5, ipady=3)
-        btn_refresh.bind("<Enter>", lambda e: btn_refresh.config(bg=self.accent_hover))
-        btn_refresh.bind("<Leave>", lambda e: btn_refresh.config(bg=self.accent_color))
-        
         # Table Frame
         self.table_frame = Frame(self.parent, bg=self.bg_color, bd=0, padx=30)
         self.table_frame.pack(fill="both", expand=True, pady=10)

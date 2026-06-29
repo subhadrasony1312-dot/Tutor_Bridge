@@ -747,10 +747,21 @@ class StudentSearchDashboard:
         feedback_box = ttk.Combobox(form, textvariable=feedback_var, values=feedback_options, state="readonly", font=("Helvetica", 10))
         feedback_box.pack(fill="x", pady=(0, 10))
         
-        Label(form, text="Write Additional Comments (Optional)", font=("Helvetica", 10, "bold"), fg=text_color, bg=card_color).pack(anchor="w", pady=(5, 3))
+        lbl_comment = Label(form, text="Write Additional Comments (Optional) (0/200)", font=("Helvetica", 10, "bold"), fg=text_color, bg=card_color)
+        lbl_comment.pack(anchor="w", pady=(5, 3))
         feedback_text = Text(form, font=("Helvetica", 10), height=3, bg="#c7b5a3", fg="#3d200f", insertbackground="#3d200f", bd=0, wrap="word")
         feedback_text.pack(fill="both", expand=True, pady=(0, 15))
         feedback_text.focus()
+        
+        def limit_comment(event=None):
+            content = feedback_text.get("1.0", "end-1c")
+            if len(content) > 200:
+                feedback_text.delete("1.0", "end")
+                feedback_text.insert("1.0", content[:200])
+                content = content[:200]
+            lbl_comment.config(text=f"Write Additional Comments (Optional) ({len(content)}/200)")
+            
+        feedback_text.bind("<KeyRelease>", limit_comment)
         
         def on_completed_change(event):
             if completed_var.get() == "Yes":
@@ -797,6 +808,10 @@ class StudentSearchDashboard:
                 return
                 
             comment_val = feedback_text.get("1.0", "end-1c").strip()
+            if len(comment_val) > 200:
+                messagebox.showerror("Validation Error", "Comments cannot exceed 200 characters.", parent=dialog)
+                return
+                
             selected_feedback = feedback_var.get()
             
             rating_map = {
