@@ -3,16 +3,17 @@ import mysql.connector
 def get_connection():
     # Primary connection details
     db_config = {
-        "host": "localhost",
-        "user": "root",
-        "password": "sb@19092006",
+        "host": "sql12.freesqldatabase.com",
+        "user": "sql12832998",
+        "password": "1MHymVQXrH",
+        "port": 3306
     }
     
     # Try connecting without database first to ensure it exists
     try:
         conn = mysql.connector.connect(**db_config)
         cursor = conn.cursor()
-        cursor.execute("CREATE DATABASE IF NOT EXISTS tutorbridge")
+        cursor.execute("CREATE DATABASE IF NOT EXISTS sql12832998")
         conn.close()
     except Exception as e:
         print("Initial MySQL Connection Error:", e)
@@ -23,7 +24,7 @@ def get_connection():
             host=db_config["host"],
             user=db_config["user"],
             password=db_config["password"],
-            database="tutorbridge"
+            database="sql12832998"
         )
         
         # Verify and initialize tables if they don't exist
