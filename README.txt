@@ -99,3 +99,14 @@ FUTURE SCOPE & ENHANCEMENTS
 - GPS/Map-based radius searching for local offline tutors.
 - Calendar scheduling for booking tuition trial classes.
 ========================================================================
+
+## Team
+
+| Role | Name |
+|------|------|
+| Team Leader | Subhadra Biswal |
+| Team Member | Subham Acharya |
+| Team Member | Rohit Kumar Jena |
+| Team Member | Bibhu Narayan Bhattacharya |
+
+========================================================================
